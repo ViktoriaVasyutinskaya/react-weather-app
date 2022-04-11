@@ -1,0 +1,93 @@
+.frame {
+  background: linear-gradient(rgb(39, 37, 37), 80%, rgb(226, 224, 214));
+  color: rgb(255, 255, 255);
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 15px;
+  min-width: 600px;
+  padding: 20px;
+}
+.degree {
+  font-size: 34px;
+}
+ul {
+  list-style: none;
+  padding: 10px;
+  margin-top: 30px;
+}
+li:first-letter {
+  text-transform: capitalize;
+}
+.city {
+  font-size: 35px;
+}
+.container {
+  margin: 20px auto;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  margin-left: 20px;
+  max-width: 700px;
+}
+.current-weather strong {
+  color: gold;
+  font-size: 40px;
+}
+.type-city {
+  background: rgb(187, 186, 183);
+  border: 2px solid rgb(110, 107, 107);
+  border-radius: 5px;
+  text-align: center;
+  color: rgb(29, 27, 27);
+  margin-right: 10px;
+}
+.button-search {
+  background: rgb(238, 228, 173);
+  border: 2px solid rgb(110, 107, 107);
+  border-radius: 5px;
+  text-align: center;
+  color: dimgray;
+}
+#city {
+  font-size: 44px;
+}
+.weather-icon {
+  display: inline-block;
+  text-align: center;
+}
+.current-conditions .active {
+  color: gold;
+  cursor: default;
+  text-decoration: none;
+}
+.current-conditions.active:hover {
+  color: gold;
+  cursor: default;
+  text-decoration: none;
+}
+.current-conditions {
+  color: rgb(238, 228, 173);
+  cursor: default;
+}
+#openSource {
+  display: inline-block;
+}
+.weather-forecast {
+  text-align: center;
+  margin-top: 15px;
+  float: none;
+}
+.week-days {
+  font-size: 18px;
+  opacity: 0.7;
+  text-align: center;
+  padding: 0;
+}
+.temp-days {
+  margin: 0 auto;
+  font-size: 14px;
+}
+.min-temp {
+  opacity: 0.6;
+}
