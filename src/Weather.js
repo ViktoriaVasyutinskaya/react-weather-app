@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./styles.css";
 
-export default function Weather() {
-  let [city, setCity] = useState("");
+export default function Weather(props) {
+  let [city, setCity] = useState(props.defaultCity);
   let [conditions, setConditions] = useState(null);
 
   function showConditions(response) {
@@ -28,40 +28,45 @@ export default function Weather() {
               <li>Humidity: {Math.round(response.data.main.humidity)}%</li>
               <li>Wind: {Math.round(response.data.wind.speed)}km/h</li>
             </ul>
-            <div>{conditions}</div>
           </span>
         </div>
       </div>
     );
   }
-  function handleInput(event) {
-    event.preventDefault();
+  function search() {
     let apiKey = "8dc5c84de9b99758c12092b7cd18ffae";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(showConditions);
+  }
+  function handleInput(event) {
+    event.preventDefault();
+    search();
   }
 
   function updateCity(event) {
     setCity(event.target.value);
   }
-
-  return (
-    <div className="App container frame">
-      <form id="search-form" onSubmit={handleInput}>
-        <input
-          className="type-city"
-          type="search"
-          placeholder="Search city"
-          autoComplete="off"
-          onChange={updateCity}
-        />
-        <input className="button-search" type="submit" value="Search" />
-      </form>
-      <div className="row">
-        <div className="col-sm-6 current-weather">
-          <div>{conditions}</div>
+  if (conditions) {
+    return (
+      <div className="App container frame">
+        <form id="search-form" onSubmit={handleInput}>
+          <input
+            className="type-city"
+            type="search"
+            placeholder="Search city"
+            autoComplete="off"
+            onChange={updateCity}
+          />
+          <input className="button-search" type="submit" value="Search" />
+        </form>
+        <div className="row">
+          <div className="col-sm-6 current-weather">
+            <div>{conditions}</div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    search();
+  }
 }
