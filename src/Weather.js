@@ -2,37 +2,24 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./styles.css";
 import WeatherForecast from "./WeatherForecast";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
-  let [conditions, setConditions] = useState(null);
+  let [conditions, setConditions] = useState({ ready: false });
 
   function showConditions(response) {
-    setConditions(
-      <div className="row">
-        <ul>
-          <li id="city">{city}</li>
-          <li id="date">Last updated:</li>
-        </ul>
-        <div className="Conditions">
-          <span className="current-conditions">
-            <img
-              className="weather-icon"
-              src={`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`}
-              alt="weather-icon"
-            />
-            <strong id="currentTemp">
-              {Math.round(response.data.main.temp)}°C
-            </strong>{" "}
-            <ul>
-              <li>{response.data.weather[0].description}</li>
-              <li>Humidity: {Math.round(response.data.main.humidity)}%</li>
-              <li>Wind: {Math.round(response.data.wind.speed)}km/h</li>
-            </ul>
-          </span>
-        </div>
-      </div>
-    );
+    setConditions({
+      ready: true,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+      coordinates: response.data.coord,
+    });
   }
   function search() {
     let apiKey = "8dc5c84de9b99758c12092b7cd18ffae";
@@ -47,7 +34,7 @@ export default function Weather(props) {
   function updateCity(event) {
     setCity(event.target.value);
   }
-  if (conditions) {
+  if (conditions.ready) {
     return (
       <div className="App container frame">
         <form id="search-form" onSubmit={handleInput}>
@@ -65,7 +52,8 @@ export default function Weather(props) {
             <div>{conditions}</div>
           </div>
         </div>
-        <WeatherForecast />
+        <WeatherInfo data={conditions} />
+        <WeatherForecast coordinates={conditions.coords} />
       </div>
     );
   } else {
