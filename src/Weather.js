@@ -48,12 +48,10 @@ export default function Weather(props) {
           <input className="button-search" type="submit" value="Search" />
         </form>
         <div className="row">
-          <div className="col-sm-6 current-weather">
-            <div>{conditions}</div>
-          </div>
+          <div className="col-sm-6 current-weather"></div>
         </div>
         <WeatherInfo data={conditions} />
-        <WeatherForecast coordinates={conditions.coords} />
+        <WeatherForecast coordinates={conditions.coordinates} />
       </div>
     );
   } else {
