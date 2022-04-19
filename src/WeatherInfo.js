@@ -1,11 +1,14 @@
 import React from "react";
+import FormattedDate from "./FormattedDate";
 
 export default function WeatherInfo(props) {
   return (
-    <div className="mt-1">
+    <div>
       <ul>
         <li id="city">{props.data.city}</li>
-        <li id="date">Last updated:</li>
+        <li id="date">
+          Last updated: <FormattedDate date={props.data.date} />
+        </li>
       </ul>
       <div className="row Conditions">
         <div className="col-6 current-conditions">
