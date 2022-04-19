@@ -27,7 +27,7 @@ li:first-letter {
   font-size: 35px;
 }
 .container {
-  margin: 20px auto;
+  margin: 0 auto;
 }
 body {
   font-family: "Montserrat", sans-serif;
@@ -60,6 +60,7 @@ body {
 }
 #city {
   font-size: 44px;
+  font-weight: bold;
   margin-left: 5px;
   margin-bottom: 5px;
 }
@@ -97,6 +98,7 @@ body {
 .temp-days {
   margin: 0 auto;
   font-size: 14px;
+  color: rgb(238, 228, 173);
 }
 .min-temp {
   opacity: 0.6;
