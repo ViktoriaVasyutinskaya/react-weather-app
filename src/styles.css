@@ -1,11 +1,16 @@
 .frame {
-  background: linear-gradient(rgb(39, 37, 37), 80%, rgb(226, 224, 214));
+  background: linear-gradient(rgb(39, 37, 37), 50%, rgb(226, 224, 214));
   color: rgb(255, 255, 255);
   max-width: 700px;
   margin: 0 auto;
   border-radius: 15px;
   min-width: 600px;
   padding: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  text-align: center;
 }
 .degree {
   font-size: 34px;
@@ -39,39 +44,37 @@ body {
   border: 2px solid rgb(110, 107, 107);
   border-radius: 5px;
   text-align: center;
-  color: rgb(29, 27, 27);
+  color: rgb(110, 107, 107);
   margin-right: 10px;
+  font-size: 20px;
+  font-family: "Roboto Condensed", sans-serif;
 }
 .button-search {
   background: rgb(238, 228, 173);
   border: 2px solid rgb(110, 107, 107);
   border-radius: 5px;
   text-align: center;
-  color: dimgray;
+  color: rgb(110, 107, 107);
+  font-size: 20px;
+  font-family: "Roboto Condensed", sans-serif;
 }
 #city {
   font-size: 44px;
+  margin-left: 5px;
+  margin-bottom: 5px;
 }
 .weather-icon {
   display: inline-block;
   text-align: center;
 }
-.current-conditions .active {
-  color: gold;
-  cursor: default;
-  text-decoration: none;
-}
-.current-conditions.active:hover {
-  color: gold;
-  cursor: default;
-  text-decoration: none;
-}
+
 .current-conditions {
   color: rgb(238, 228, 173);
-  cursor: default;
 }
 .description {
   font-weight: bold;
+  color: rgb(238, 228, 173);
+  font-size: 20px;
 }
 #currentTemp {
   font-size: 35px;
@@ -101,7 +104,11 @@ body {
 #date {
   font-weight: bold;
   opacity: 0.6;
+  margin-left: 5px;
 }
-.weather-icon-daily {
-  font-size: smaller;
+.footer {
+  font-family: "Roboto Condensed", sans-serif;
+}
+.footer a:visited {
+  color: inherit;
 }
