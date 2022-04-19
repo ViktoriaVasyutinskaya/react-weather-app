@@ -41,7 +41,7 @@ export default function Weather(props) {
           <input
             className="type-city"
             type="search"
-            placeholder="Search city"
+            placeholder="Type a city"
             autoComplete="off"
             onChange={updateCity}
           />
